@@ -1,0 +1,58 @@
+use_bpm 100
+
+in_thread do
+  live_loop :bass do
+sleep 1.5
+    play_chord [:c2, :c, :e, :g], amp: 3
+
+    sleep 2
+    play_chord [:f3, :f, :a, :c], amp: 2
+    sleep 2
+    play_chord [:c2, :c, :e, :g], amp: 3
+    sleep 2
+    play_chord [:g2, :g, :b, :d], amp: 3
+    sleep 2
+  end
+end
+
+in_thread do
+  live_loop :drums do
+    sample :bd_haus
+
+    sleep 1.5
+    sample :drum_bass_soft
+    sleep 0.5
+    sample :bd_haus
+    sleep 1.5
+    sample :drum_bass_soft
+    sleep 0.5
+    sample :sn_dub
+    sleep 0.5
+
+  end
+end
+in_thread do
+  live_loop :melody do
+    use_synth :pretty_bell
+    play_pattern_timed [:e, :d, :c], [0.5, 0.5]
+    play_pattern_timed [:g, :g], [1]
+    play_pattern_timed [:f, :g, :a], [0.5, 0.5]
+    play :g
+    sleep 1.5
+    play_pattern_timed [:g, :e, :g], [0.5, 0.5]
+    play_pattern_timed [:c5, :b], [1]
+    play_pattern_timed [:a, :g, :fs], [0.5, 0.5]
+    play :g
+    sleep 1.5
+    play_pattern_timed [:e, :d, :c], [0.5, 0.5]
+    play_pattern_timed [:g, :g], [1]
+    play_pattern_timed [:f, :g, :a], [0.5, 0.5]
+    play :g
+    sleep 1.5
+    play_pattern_timed [:c, :d, :e], [0.5, 0.5]
+    play_pattern_timed [:f, :d], [1]
+    play_pattern_timed [:c, :d, :b3], [0.5, 0.5]
+    play :c
+    sleep 1.5
+  end
+end
