@@ -1,6 +1,6 @@
-# Tilburg
-
-# Coded by Sam Aaron
+# This if original from the sample named Tilburg, I have now updated it
+# The melody is Blessed Assurance.
+# Coded by Sam Aaron and khebbie
 
 use_debug false
 load_samples :guit_em9, :bd_haus
